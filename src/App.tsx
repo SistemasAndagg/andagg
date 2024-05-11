@@ -2,7 +2,6 @@ import './index.css';
 
 const App: React.FC = () => {
   return (
-<<<<<<< HEAD
     <div className="bg-gray-100 min-h-screen flex flex-col">
       {/* Header */}
       <header className="bg-blue-900 text-white py-4">
@@ -65,12 +64,6 @@ const App: React.FC = () => {
       </footer>
     </div>
   );
-=======
-    <>
-     <p className=' text-green-600'>HOLA </p>
-    </>
-  )
->>>>>>> 5768712b6f396fed41ed091f56cf92615af6e1cc
 }
 
 export default App;
