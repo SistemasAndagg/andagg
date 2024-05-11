@@ -1,3 +1,4 @@
+import React from 'react';
 import './index.css';
 
 const App: React.FC = () => {
@@ -18,7 +19,7 @@ const App: React.FC = () => {
       </header>
 
       {/* Main content */}
-      <main className="flex-1">
+      <main className="flex-1 mt-8 mb-8"> {/* Agrega mt-8 y mb-8 para márgenes arriba y abajo */}
         <div className="container mx-auto py-8">
           <section id="intro" className="mb-8 animate-fade-in-down">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Bienvenido a AndaGG</h2>
@@ -57,7 +58,7 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-4">
+      <footer className="bg-gray-900 text-white py-4 mt-8"> {/* Agrega mt-8 para margen arriba */}
         <div className="container mx-auto text-center">
           <p className="text-sm animate-bounce">&copy; {new Date().getFullYear()} AndaGG. Todos los derechos reservados.</p>
         </div>
