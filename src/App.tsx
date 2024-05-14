@@ -1,21 +1,18 @@
-// Importaciones de módulos y componentes
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCashRegister } from '@fortawesome/free-solid-svg-icons';
 import { faChartLine, faFileInvoiceDollar, faShoppingCart, faCalculator, faNetworkWired, faBullhorn, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
-import Fondo from './public/gente-negocios-dandose-mano.jpg'; // Ruta de la imagen del logo
+import Fondo from './public/gente-negocios-dandose-mano.jpg';
+import LogoAndaGG from './public/Andagg_Color.png';
 
-
-// Definición de la interfaz para las tarjetas de servicio
 interface ServiceCardProps {
   icon: JSX.Element;
   title: string;
   description: string;
 }
 
-// Componente para las tarjetas de servicio
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => (
   <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center cursor-pointer transition-transform transform-gpu hover:-translate-y-2 hover:shadow-xl">
     <div className="text-3xl text-gray-800 mb-4">{icon}</div>
@@ -24,47 +21,39 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
   </div>
 );
 
-// Componente principal de la aplicación
 const App: React.FC = () => {
-  // Función para enviar mensajes por WhatsApp
   const sendWhatsAppMessage = () => {
     const message = encodeURIComponent("¡Hola! Estoy interesado en obtener más información sobre sus servicios.");
     window.open(`https://wa.me/9994393319?text=${message}`, '_blank');
   };
 
-  // Renderización del componente
   return (
-<div className="min-h-screen flex flex-col relative">
-      {/* Sección del encabezado */}
+    <div className="min-h-screen flex flex-col relative">
       <header className="bg-blue-900 text-white py-4 px-8">
         <div className="container mx-auto flex justify-between items-center">
-          
           <h1 className="text-3xl font-bold animate-pulse">AndaGG</h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><a className="hover:underline" href="/inicio">Inicio</a></li>
-              <li><a className="hover:underline" href="/servicios">Servicios</a></li>
-              <li><a className="hover:underline" href="/contacto">Contacto</a></li>
+              <li><a className="hover:underline" href="#intro">Inicio</a></li>
+              <li><a className="hover:underline" href="#services">Servicios</a></li>
+              <li><a className="hover:underline" href="#contact">Contacto</a></li>
             </ul>
           </nav>
         </div>
       </header>
 
-      {/* Sección del cuerpo */}
       <main className=" overflow-auto" style={{backgroundImage: `url(${Fondo})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
         <div className="container mx-auto py-8">
-          <section id="intro" className="mb-8 animate-fade-in-down bg-white rounded-lg shadow-lg flex flex-col items-center py-4">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 ">Bienvenido a AndaGG</h2>
+          <section id="intro" className="mb-8 animate-fade-in-down bg-white rounded-lg shadow-lg flex flex-col  items-center py-3">
+            <img className=' w-28 h-32' src={LogoAndaGG} alt="" />
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 mt-4 ">Bienvenido a AndaGG</h2>
             <p className="text-lg text-gray-700 ">Brindamos soluciones integrales para clínicas y médicos, desde software especializado hasta estrategias de marketing.</p>
             <h2 className="text-3xl font-bold text-gray-900 mb-4 py-4">Nuestros Servicios:</h2>
           </section>
 
-          {/* Sección de servicios */}
           <section id="services" className="mb-8">
-      
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Renderización de las tarjetas de servicio */}
-              <ServiceCard
+            <ServiceCard
                 icon={<FontAwesomeIcon icon={faChartLine} />}
                 title="Gestión Administrativa"
                 description="Optimización de procesos administrativos para clínicas y empresas."
@@ -102,30 +91,24 @@ const App: React.FC = () => {
               <ServiceCard
                 icon={<FontAwesomeIcon icon={faCashRegister} />}
                 title="Gestión de Puntos de Venta"
-                description="Optimización y administración de puntos de venta para mejorar la eficiencia y aumentar las ventas."
+                description="Optimización y administración de puntos de venta."
               />
             </div>
           </section>
 
-          {/* Sección de contacto */}
           <section id="contact" className="animate-fade-in-up mb-8 bg-white rounded-lg shadow-lg px-4 py-2">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Contacto</h2>
             <p className="text-lg text-gray-700 mb-2">Ponte en contacto con nosotros para más detalles.</p>
             <p className="text-lg text-gray-700 mb-2">Email: info@andagg.com</p>
-            <p className="text-lg text-gray-700">Teléfono: +123456789</p>
+            <p className="text-lg text-gray-700">Teléfono: +529994393319</p>
           </section>
-
-          {/* Agregar más contenido aquí */}
-
         </div>
 
-        {/* Botón flotante de WhatsApp */}
         <button onClick={sendWhatsAppMessage} className="fixed bottom-8 right-8 md:bottom-16 md:right-16 lg:right-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-full shadow-lg z-10">
           <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6" />
         </button>
       </main>
 
-      {/* Sección del pie de página */}
       <footer className="bg-gray-900 text-white py-4">
         <div className="container mx-auto text-center">
           <p className="text-sm">&copy; {new Date().getFullYear()} AndaGG. Todos los derechos reservados.</p>
