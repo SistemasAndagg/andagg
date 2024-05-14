@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCashRegister } from '@fortawesome/free-solid-svg-icons';
 import { faChartLine, faFileInvoiceDollar, faShoppingCart, faCalculator, faNetworkWired, faBullhorn, faPenSquare } from '@fortawesome/free-solid-svg-icons';
+import { Link, } from 'react-scroll'; // Importamos react-scroll
 import './index.css';
 import Fondo from './public/gente-negocios-dandose-mano.jpg';
 import LogoAndaGG from './public/Andagg_Color.png';
@@ -34,9 +35,10 @@ const App: React.FC = () => {
           <h1 className="text-3xl font-bold animate-pulse">AndaGG</h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><a className="hover:underline" href="#intro">Inicio</a></li>
-              <li><a className="hover:underline" href="#services">Servicios</a></li>
-              <li><a className="hover:underline" href="#contact">Contacto</a></li>
+              {/* Utilizamos Link de react-scroll en lugar de <a> */}
+              <li><Link className="hover:underline" to="intro" smooth={true} duration={300}>Inicio</Link></li>
+              <li><Link className="hover:underline" to="services" smooth={true} duration={600}>Servicios</Link></li>
+              <li><Link className="hover:underline" to="contact" smooth={true} duration={600}>Contacto</Link></li>
             </ul>
           </nav>
         </div>
@@ -100,7 +102,7 @@ const App: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Contacto</h2>
             <p className="text-lg text-gray-700 mb-2">Ponte en contacto con nosotros para más detalles.</p>
             <p className="text-lg text-gray-700 mb-2">Email: info@andagg.com</p>
-            <p className="text-lg text-gray-700">Teléfono: +529994393319</p>
+            <p className="text-lg text-gray-700">Teléfono: +123456789</p>
           </section>
         </div>
 
