@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-
+import { faCashRegister } from '@fortawesome/free-solid-svg-icons';
 import { faChartLine, faFileInvoiceDollar, faShoppingCart, faCalculator, faNetworkWired, faBullhorn, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
+import AndaggLogo from './public/Andagg_Blanco.png'; // Ruta de la imagen del logo
 
 interface ServiceCardProps {
   icon: JSX.Element;
@@ -12,7 +13,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => (
-  <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+  <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center cursor-pointer transition-transform transform-gpu hover:-translate-y-2 hover:shadow-xl">
     <div className="text-3xl text-gray-800 mb-4">{icon}</div>
     <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
     <p className="text-gray-700 text-center">{description}</p>
@@ -30,8 +31,11 @@ const App: React.FC = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col relative">
       {/* Header */}
-      <header className="bg-blue-900 text-white py-4">
+      <header className="bg-blue-900 text-white py-4 px-8">
         <div className="container mx-auto flex justify-between items-center">
+          <div className='className=" w-52 h-24"'>
+          <img src={AndaggLogo} alt="AndaGG" className=" w-24 h-24" /> 
+          </div>
           <h1 className="text-3xl font-bold animate-pulse">AndaGG</h1>
           <nav>
             <ul className="flex space-x-4">
@@ -89,6 +93,11 @@ const App: React.FC = () => {
                 title="Creación de Contenido"
                 description="Generación de contenido relevante para redes sociales y blogs."
               />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faCashRegister} />}
+                title="Gestión de Puntos de Venta"
+                description="Optimización y administración de puntos de venta para mejorar la eficiencia y aumentar las ventas."
+              />
             </div>
           </section>
 
@@ -104,9 +113,9 @@ const App: React.FC = () => {
         </div>
 
         {/* Floating WhatsApp Button */}
-        <button onClick={sendWhatsAppMessage} className="fixed bottom-8 right-8 md:bottom-16 md:right-16 lg:right-20 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-full shadow-lg z-10">
-  <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6" />
-</button>
+        <button onClick={sendWhatsAppMessage} className="fixed bottom-8 right-8 md:bottom-16 md:right-16 lg:right-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-full shadow-lg z-10">
+          <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6" />
+        </button>
       </main>
 
       {/* Footer */}
