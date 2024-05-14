@@ -1,6 +1,23 @@
 import React from 'react';
-import whatsappLogo from './Public/whatsapp-logo.jpg'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
+import { faChartLine, faFileInvoiceDollar, faShoppingCart, faCalculator, faNetworkWired, faBullhorn, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
+
+interface ServiceCardProps {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => (
+  <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+    <div className="text-3xl text-gray-800 mb-4">{icon}</div>
+    <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+    <p className="text-gray-700 text-center">{description}</p>
+  </div>
+);
 
 const App: React.FC = () => {
 
@@ -15,7 +32,7 @@ const App: React.FC = () => {
       {/* Header */}
       <header className="bg-blue-900 text-white py-4">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold">AndaGG</h1>
+          <h1 className="text-3xl font-bold animate-pulse">AndaGG</h1>
           <nav>
             <ul className="flex space-x-4">
               <li><a className="hover:underline" href="/inicio">Inicio</a></li>
@@ -36,9 +53,43 @@ const App: React.FC = () => {
 
           <section id="services" className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Servicios */}
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faChartLine} />}
+                title="Gestión Administrativa"
+                description="Optimización de procesos administrativos para clínicas y empresas."
+              />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faFileInvoiceDollar} />}
+                title="Gestión de Facturación"
+                description="Servicios de facturación electrónica y control de ingresos."
+              />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faShoppingCart} />}
+                title="Compras"
+                description="Asesoramiento en compras estratégicas y gestión de proveedores."
+              />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faCalculator} />}
+                title="Contaduría"
+                description="Servicios contables especializados para el sector médico."
+              />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faNetworkWired} />}
+                title="Sistemas y Redes Tecnológicas"
+                description="Implementación y mantenimiento de sistemas informáticos."
+              />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faBullhorn} />}
+                title="Marketing y Posicionamiento"
+                description="Estrategias de marketing digital y posicionamiento web."
+              />
+              <ServiceCard
+                icon={<FontAwesomeIcon icon={faPenSquare} />}
+                title="Creación de Contenido"
+                description="Generación de contenido relevante para redes sociales y blogs."
+              />
+            </div>
           </section>
 
           <section id="contact" className="animate-fade-in-up mb-8">
@@ -54,14 +105,14 @@ const App: React.FC = () => {
 
         {/* Floating WhatsApp Button */}
         <button onClick={sendWhatsAppMessage} className="fixed bottom-8 right-8 md:bottom-16 md:right-16 lg:right-20 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-full shadow-lg z-10">
-          <img src={whatsappLogo} alt="WhatsApp" className="w-6 h-6" />
-        </button>
+  <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6" />
+</button>
       </main>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-4 mt-8">
         <div className="container mx-auto text-center">
-          <p className="text-sm animate-bounce">&copy; {new Date().getFullYear()} AndaGG. Todos los derechos reservados.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} AndaGG. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>
