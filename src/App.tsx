@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
   const sendWhatsAppMessage = () => {
     const message = encodeURIComponent("¡Hola! Estoy interesado en obtener más información sobre sus servicios.");
-    window.open(`https://wa.me/9994393319?text=${message}`, '_blank');
+    window.open(`https://wa.me/+529994393319?text=${message}`, '_blank');
   };
 
   return (
@@ -56,14 +56,19 @@ const App: React.FC = () => {
       <main className="overflow-auto mt-16" style={{ backgroundImage: `url(${Fondo})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
         <div className="container mx-auto py-8">
 
-          <section id="intro" className="mb-8 animate-fade-in-down bg-white rounded-lg shadow-lg flex flex-col  items-center py-3">
-            <img className=' w-28 h-32 animate-pulse' src={LogoAndaGG} alt="" />
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 mt-4 transition-transform transform-gpu hover:-translate-y-4 hover:shadow-xl  h-16 px-4 flex items-center justify-center rounded-lg ">Bienvenido a AndaGG</h2>
-            <p className=" px-4 rounded-lg bg-blue-100 text-lg text-gray-700 transition-transform transform-gpu hover:-translate-y-2 hover:shadow-xl h-14 flex items-center justify-center">
-              Brindamos soluciones integrales para clínicas y médicos, desde software especializado hasta estrategias de marketing.
-            </p>
-            <h2 className=" text-3xl font-bold text-gray-900 mb-4 py-4 transition-transform transform-gpu hover:-translate-y-2 hover:shadow-xl  h-16 px-4 flex items-center justify-center rounded-lg">Nuestros Servicios:</h2>
-          </section>
+        <section id="intro" className="mb-8 animate-fade-in-down bg-white rounded-lg shadow-lg flex flex-col items-center py-3">
+  <img className="w-28 h-32 animate-pulse" src={LogoAndaGG} alt="" />
+  <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 mt-4 transition-transform transform-gpu hover:-translate-y-4 hover:shadow-xl h-16 px-4 flex items-center justify-center rounded-lg">
+    Bienvenido a AndaGG
+  </h2>
+  <p className="px-4 rounded-lg bg-blue-100 text-lg text-gray-700 transition-transform transform-gpu hover:-translate-y-2 hover:shadow-xl h-auto md:h-14 flex items-center justify-center">
+    Brindamos soluciones integrales para clínicas y médicos, desde software especializado hasta estrategias de marketing.
+  </p>
+  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 py-4 transition-transform transform-gpu hover:-translate-y-2 hover:shadow-xl h-16 px-4 flex items-center justify-center rounded-lg">
+    Nuestros Servicios:
+  </h2>
+</section>
+
 
           <section id="services" className="mb-8">
             <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
